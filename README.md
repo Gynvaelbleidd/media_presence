@@ -1,8 +1,8 @@
 # Media Rich Presence
 
-A Discord Rich Presence tool that displays what you're currently watching, powered by [TMDB](https://www.themoviedb.org/). Shows movie posters, ratings, runtime, and more directly on your Discord profile.
+A Discord Rich Presence tool that displays what you're currently watching, powered by [TMDB](https://www.themoviedb.org/). Shows posters, ratings, and more directly on your Discord profile.
 
-Currently supports **movies**, with TV series support planned.
+Supports **movies** and **TV series**.
 
 ## Requirements
 
@@ -37,7 +37,18 @@ Currently supports **movies**, with TV series support planned.
 python movie_presence.py
 ```
 
-This opens a prompt where you can search for movies by title, title with year, or TMDB ID:
+On launch, select a media type:
+
+```
+Select media type:
+  movie
+  tv
+> movie
+```
+
+#### Movie mode
+
+Search for movies by title, title with year, or TMDB ID:
 
 ```
 Movie > Casino Royale (2006)
@@ -52,23 +63,59 @@ Movie > clear
 Movie > quit
 ```
 
+#### TV mode
+
+Search for TV shows by title, with optional year and season:
+
+```
+TV > Breaking Bad
+✓ Now showing: Breaking Bad (2008)
+
+TV > Breaking Bad (2008)
+✓ Now showing: Breaking Bad (2008)
+
+TV > Breaking Bad (S3)
+✓ Now showing: Breaking Bad (2008)
+  Season: 3
+
+TV > Breaking Bad (2008) (S3)
+✓ Now showing: Breaking Bad (2008)
+  Season: 3
+
+TV > id:1396
+✓ Now showing: Breaking Bad (2008)
+
+TV > clear
+✓ Presence cleared
+
+TV > quit
+```
+
 ### CLI mode
 
-Pass a movie directly as an argument:
+Pass a movie or TV show directly as an argument, prefixed with `movie:` or `tv:`:
+
+```
+python movie_presence.py movie: Casino Royale (2006)
+python movie_presence.py tv: Breaking Bad (S3)
+python movie_presence.py tv: id:1396
+```
+
+Without a prefix, the argument is treated as a movie:
 
 ```
 python movie_presence.py "Casino Royale (2006)"
-python movie_presence.py id:36557
 ```
 
 The presence stays active until you press Ctrl+C.
 
 ### Windows
 
-Double-click `launch.bat` or run it from the command line with an optional movie argument:
+Double-click `launch.bat` for interactive mode, or run from the command line:
 
 ```
-launch.bat "Casino Royale (2006)"
+launch.bat movie: Casino Royale (2006)
+launch.bat tv: Breaking Bad (S3)
 ```
 
 ## License
