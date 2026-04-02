@@ -1,0 +1,13 @@
+# Media Rich Presence - Configuration
+#
+# DISCORD_APP_ID:
+#   Create a Discord Application at https://discord.com/developers/applications
+#   Copy the "Application ID" from the General Information page
+#
+# TMDB_API_KEY:
+#   Create an account at https://www.themoviedb.org
+#   Go to https://www.themoviedb.org/settings/api and request an API key
+#   Copy the "API Key (v3 auth)" value
+
+DISCORD_APP_ID=
+TMDB_API_KEY=
